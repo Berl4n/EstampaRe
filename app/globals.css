@@ -1,0 +1,273 @@
+/* ============================= */
+/*           TAILWIND            */
+/* ============================= */
+
+@import "tailwindcss";
+@tailwind utilities;
+
+
+/* ============================= */
+/*          DESIGN TOKENS        */
+/* ============================= */
+
+:root {
+  /* Core Colors */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #111118;
+
+  --text-primary: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.6);
+
+  --purple: #c084fc;
+  --pink: #f9a8d4;
+
+  /* Borders */
+  --border-soft: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.15);
+
+  /* Effects */
+  --blur-lg: blur(12px);
+  --radius-xl: 32px;
+
+  /* Shadows */
+  --shadow-soft: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+  --shadow-strong: 0 30px 60px -20px rgba(0, 0, 0, 0.8);
+
+  /* Transition */
+  --transition-default: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* ============================= */
+/*              BASE             */
+/* ============================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-inter), var(--font-montserrat), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+
+/* ============================= */
+/*           LAYOUT              */
+/* ============================= */
+
+.section-dark {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  padding: 6rem 0;
+  position: relative;
+}
+
+.section-light {
+  background: var(--bg-secondary);
+  padding: 6rem 0;
+}
+
+.container-default {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+
+/* ============================= */
+/*           NAVIGATION          */
+/* ============================= */
+
+.nav-glass {
+  background: rgba(10, 10, 15, 0.8);
+  backdrop-filter: var(--blur-lg);
+  -webkit-backdrop-filter: var(--blur-lg);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+
+/* ============================= */
+/*          TYPOGRAPHY           */
+/* ============================= */
+
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, var(--purple) 50%, var(--pink) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+
+/* ============================= */
+/*           BUTTONS             */
+/* ============================= */
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--purple), var(--pink));
+  color: white;
+  padding: 0.9rem 2.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-default);
+  box-shadow: 0 5px 20px rgba(192, 132, 252, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 20px 40px -10px rgba(192, 132, 252, 0.5);
+}
+
+.btn-outline {
+  border: 1px solid var(--border-strong);
+  background: rgba(255, 255, 255, 0.03);
+  color: white;
+  padding: 0.9rem 2.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+
+.btn-outline:hover {
+  background: white;
+  color: var(--bg-primary);
+  border-color: white;
+  transform: translateY(-2px);
+}
+
+
+/* ============================= */
+/*            CARDS              */
+/* ============================= */
+
+.card-creative {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  backdrop-filter: var(--blur-lg);
+  transition: 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-creative::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(192, 132, 252, 0.15), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card-creative:hover {
+  transform: translateY(-8px);
+  border-color: rgba(192, 132, 252, 0.4);
+  box-shadow: var(--shadow-strong);
+}
+
+.card-creative:hover::before {
+  opacity: 1;
+}
+
+
+/* ============================= */
+/*           FORMS               */
+/* ============================= */
+
+input,
+textarea {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border-radius: 16px;
+  border: 1px solid var(--border-soft);
+  background: rgba(255, 255, 255, 0.03);
+  color: white;
+  transition: var(--transition-default);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--purple);
+  box-shadow: 0 0 0 4px rgba(192, 132, 252, 0.15);
+}
+
+
+/* ============================= */
+/*          ANIMATIONS           */
+/* ============================= */
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+
+/* ============================= */
+/*          SCROLLBAR            */
+/* ============================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--purple), var(--pink));
+  border-radius: 8px;
+}
+
+
+/* ============================= */
+/*         RESPONSIVE            */
+/* ============================= */
+
+@media (max-width: 768px) {
+  .section-dark,
+  .section-light {
+    padding: 4rem 0;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    padding: 0.8rem 2rem;
+  }
+}
