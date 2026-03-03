@@ -5,6 +5,7 @@ import "./globals.css"
 const geist = Geist({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://estampa-re.vercel.app/"),
   title: "Estamparia Profissional | Silk Screen, DTF e Sublimação",
   description:
     "Criamos estampas estratégicas para marcas e empresas. Produção profissional em silk screen, DTF e sublimação.",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     title: "Estamparia Profissional para Marcas",
     description:
       "Arte que vende. Produção de camisetas personalizadas para empresas.",
-    images: ["/images/hero.jpg"],
+    images: ["/images/imagemprincipal.png"],
   },
 }
 
